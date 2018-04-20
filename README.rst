@@ -14,8 +14,8 @@ Clone the current repository and install with ``pip``::
 Bugs
 ----
 
-Please report any bugs that you find through the `PACKAGE_NAME GitLab project
-<https://github.com/r-hamon/pygas/issues>_.
+Please report any bugs that you find through the `pygas Github project
+<https://github.com/r-hamon/pygas/issues>`_.
 
 You can also fork the repository and create a merge request.
 Copyright(c) 2018
