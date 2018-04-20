@@ -39,15 +39,17 @@ import sys
 
 NAME = 'pygas'
 DESCRIPTION = 'Python implementation of the transformation from graph to signals, and back.'
+LICENSE = 'GNU General Public License v3 (GPLv3)'
 URL = 'https://github.com/r-hamon/{}'.format(NAME)
 AUTHOR = 'Ronan Hamon'
 AUTHOR_EMAIL = 'rhamon@protonmail.con'
-INSTALL_REQUIRES = ['matplotlib>=2.1',
-                    'numpy>=1.14',
-                    'scipy>=1.0',
-                    'networkx>=1.0']
+INSTALL_REQUIRES = ['matplotlib',
+                    'numpy',
+                    'scipy',
+                    'networkx']
 CLASSIFIERS = [
     'Development Status :: 4 - Beta',
+    #  'Development Status :: 5 - Production/Stable',
     'Intended Audience :: Developers',
     'Intended Audience :: End Users/Desktop',
     'Intended Audience :: Science/Research',
@@ -56,15 +58,21 @@ CLASSIFIERS = [
     'Natural Language :: English',
     'Operating System :: POSIX :: Linux',
     'Programming Language :: Python :: 3']
-PYTHON_REQUIRES = '>=3'
-PROJECTS_URLS = {'Bug Reports': URL + '/issues',
+PYTHON_REQUIRES = '>=3.5'
+EXTRA_REQUIRE = {}
+PROJECT_URLS = {'Bug Reports': URL + '/issues',
                  'Source': URL}
 KEYWORDS = 'networks, graphs, signals'
 
 
+###############################################################################
 if sys.argv[-1] == 'setup.py':
     print("To install, run 'python setup.py install'\n")
 
+if sys.version_info[:2] < (3, 5):
+    errmsg = '{} requires Python 3.5 or later ({[0]:d}.{[1]:d} detected).'
+    print(errmsg.format(NAME, sys.version_info[:2]))
+    sys.exit(-1)
 
 def get_version():
     v_text = open('VERSION').read().strip()
@@ -103,12 +111,14 @@ def setup_package():
           url=URL,
           author=AUTHOR,
           author_email=AUTHOR_EMAIL,
+          license=LICENSE,
           classifiers=CLASSIFIERS,
           keywords=KEYWORDS,
           packages=find_packages(exclude=['doc', 'tests']),
           install_requires=INSTALL_REQUIRES,
           python_requires=PYTHON_REQUIRES,
-          projects_urls=PROJECTS_URLS)
+          extra_require=EXTRA_REQUIRE,
+          project_urls=PROJECT_URLS)
 
 
 if __name__ == "__main__":
