@@ -21,7 +21,7 @@ You can also fork the repository and create a merge request.
 Copyright(c) 2018
 -----------------
 
-`R. Hamon <mailto:r<lastname_AT_protonmail.com>`
+`R. Hamon <mailto:r<lastname_AT_protonmail.com>`_
 
 License
 -------
